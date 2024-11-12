@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+h1 {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #2980b9;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+h4 {
+    font-size: 1.5em;
+    margin-top: 20px;
+}
+
+#hero-avatar {
+    max-width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.hero-appearance p {
+    font-size: 1.1em;
+    color: #34495e;
+    margin: 5px 0;
+}
+
+.hero-appearance {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.progress {
+    height: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.progress-bar {
+    font-size: 1em;
+    color: white;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 10px;
+}
+
+.progress-bar.bg-info {
+    background-color: #3498db;
+}
+
+.progress-bar.bg-success {
+    background-color: #2ecc71;
+}
+
+.progress-bar.bg-warning {
+    background-color: #f39c12;
+}
+
+.progress-bar.bg-danger {
+    background-color: #e74c3c;
+}
+
+.progress-bar.bg-primary {
+    background-color: #9b59b6;
+}
+
+.progress-bar.bg-secondary {
+    background-color: #95a5a6;
+}
+
+button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3498db;
+}
+
+button:active {
+    background-color: #1d6fa5;
+}
