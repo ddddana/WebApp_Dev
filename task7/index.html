@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Случайный Герой</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h1>Случайный Герой</h1>
+        <div>
+            <img id="hero-avatar" src="" alt="Герой" class="img-fluid mb-3">
+        </div>
+        <h2 id="hero-title">Имя героя</h2>
+        <div class="hero-appearance">
+            <p id="hero-description">Описание героя</p>
+            <p id="hero-gender">Пол: Неизвестно</p>
+            <p id="hero-race">Раса: Неизвестно</p>
+            <p id="hero-height">Рост: Неизвестно</p>
+        </div>
+
+        <div class="hero-stats">
+            <h4>Навыки</h4>
+            <div class="progress mb-2">
+                <div id="hero-intelligence" class="progress-bar bg-info" role="progressbar"></div>
+            </div>
+            <span>Интеллект: <span id="intelligence-value"></span></span>
+        
+            <div class="progress mb-2">
+                <div id="hero-strength" class="progress-bar bg-success" role="progressbar"></div>
+            </div>
+            <span>Сила: <span id="strength-value"></span></span>
+        
+            <div class="progress mb-2">
+                <div id="hero-speed" class="progress-bar bg-warning" role="progressbar"></div>
+            </div>
+            <span>Скорость: <span id="speed-value"></span></span>
+        
+            <div class="progress mb-2">
+                <div id="hero-durability" class="progress-bar bg-danger" role="progressbar"></div>
+            </div>
+            <span>Выносливость: <span id="durability-value"></span></span>
+        
+            <div class="progress mb-2">
+                <div id="hero-power" class="progress-bar bg-primary" role="progressbar"></div>
+            </div>
+            <span>Мощь: <span id="power-value"></span></span>
+        
+            <div class="progress mb-2">
+                <div id="hero-combat" class="progress-bar bg-secondary" role="progressbar"></div>
+            </div>
+            <span>Бой: <span id="combat-value"></span></span>
+        </div>
+        
+        <button onclick="fetchHeroData()" class="btn btn-primary mt-3">Получить Героя</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
