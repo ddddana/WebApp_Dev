@@ -27,10 +27,10 @@ function updateProgressBar(statElement, value, statId) {
 
 function displayHeroData(hero) {
   heroTitle.textContent = hero.name || "Без имени";
-  heroDescription.textContent = `Описание: ${hero.biography.firstAppearance || "Нет описания"}`;
-  heroGender.textContent = `Пол: ${hero.appearance.gender || "Неизвестно"}`;
-  heroRace.textContent = `Раса: ${hero.appearance.race || "Неизвестно"}`;
-  heroHeight.textContent = `Рост: ${hero.appearance.height[1] || "Неизвестно"}`;
+  heroDescription.textContent = `Description: ${hero.biography.firstAppearance || "Нет описания"}`;
+  heroGender.textContent = `Gender: ${hero.appearance.gender || "Неизвестно"}`;
+  heroRace.textContent = `Race: ${hero.appearance.race || "Неизвестно"}`;
+  heroHeight.textContent = `Height: ${hero.appearance.height[1] || "Неизвестно"}`;
 
   updateProgressBar(heroStats.intelligence, hero.powerstats.intelligence, "intelligence");
   updateProgressBar(heroStats.strength, hero.powerstats.strength, "strength");
