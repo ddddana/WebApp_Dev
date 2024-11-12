@@ -57,4 +57,3 @@ async function fetchHeroData() {
 document.querySelector("button").addEventListener("click", fetchHeroData);
 
 document.addEventListener("DOMContentLoaded", fetchHeroData);
-
