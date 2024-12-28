@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetics Store - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Cosmetics Store</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="favorites.html">Favorites</a></li>
+                        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container py-4">
+        <h2 class="text-center mb-4">Our Products</h2>
+
+                <!-- Search Section -->
+                <div class="mb-4">
+                    <label for="searchInput" class="form-label">Search Products:</label>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Enter product name..." oninput="searchProducts()">
+                </div>
+
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <label for="brandFilter" class="form-label">Filter by Brand:</label>
+                <select id="brandFilter" class="form-select" onchange="applyFilters()">
+                    <option value="all">All Brands</option>
+                    <option value="Brand A">Brand A</option>
+                    <option value="Brand B">Brand B</option>
+                    <option value="Brand C">Brand C</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="priceFilter" class="form-label">Filter by Price:</label>
+                <input type="range" id="priceFilter" class="form-range" min="5000" max="20000" step="500" value="20000" oninput="updatePriceLabel()" onchange="applyFilters()">
+                <p>Up to: <span id="priceLabel">20000</span> tg</p>
+            </div>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="product">
+            <img src="images/lipstick.jpg" alt="Lipstick">
+            <h3>Lipstick</h3>
+            <p>A vibrant lipstick to complement your look.</p>
+            <p>Price: 10500 tg</p>
+            <p>Rating: ⭐⭐</p>
+            <button onclick="addToCart('Lipstick', 10500)">Add to Cart</button>
+            <button onclick="addToFavorites('Lipstick')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/foundation.jpg" alt="Foundation">
+            <h3>Foundation</h3>
+            <p>A smooth foundation for flawless skin.</p>
+            <p>Price: 11000 tg</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button onclick="addToCart('Foundation', 11000)">Add to Cart</button>
+            <button onclick="addToFavorites('Foundation')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/mascara.jpg" alt="Mascara">
+            <h3>Mascara</h3>
+            <p>Waterproof mascara for long lashes.</p>
+            <p>Price: 11500 tg</p>
+            <p>Rating: ⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Mascara', 11500)">Add to Cart</button>
+            <button onclick="addToFavorites('Mascara')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/blush.jpg" alt="Blush">
+            <h3>Blush</h3>
+            <p>Rosy blush to add color to your cheeks.</p>
+            <p>Price: 12000 tg</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Blush', 12000)">Add to Cart</button>
+            <button onclick="addToFavorites('Blush')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/eyeliner.jpg" alt="Eyeliner">
+            <h3>Eyeliner</h3>
+            <p>Precise eyeliner for sharp looks.</p>
+            <p>Price: 12500 tg</p>
+            <p>Rating: ⭐</p>
+            <button onclick="addToCart('Eyeliner', 12500)">Add to Cart</button>
+            <button onclick="addToFavorites('Eyeliner')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/concealer.jpg" alt="Concealer">
+            <h3>Concealer</h3>
+            <p>A concealer to cover imperfections.</p>
+            <p>Price: 13000 tg</p>
+            <p>Rating: ⭐⭐</p>
+            <button onclick="addToCart('Concealer', 13000)">Add to Cart</button>
+            <button onclick="addToFavorites('Concealer')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/eyeshadow_palette.jpg" alt="Eyeshadow Palette">
+            <h3>Eyeshadow Palette</h3>
+            <p>A palette with vibrant eyeshadow colors.</p>
+            <p>Price: 13500 tg</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button onclick="addToCart('Eyeshadow Palette', 13500)">Add to Cart</button>
+            <button onclick="addToFavorites('Eyeshadow Palette')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/lip_gloss.jpg" alt="Lip Gloss">
+            <h3>Lip Gloss</h3>
+            <p>Glossy lip gloss for shiny lips.</p>
+            <p>Price: 14000 tg</p>
+            <p>Rating: ⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Lip Gloss', 14000)">Add to Cart</button>
+            <button onclick="addToFavorites('Lip Gloss')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/face_primer.jpg" alt="Face Primer">
+            <h3>Face Primer</h3>
+            <p>A primer to prepare your skin for makeup.</p>
+            <p>Price: 14500 tg</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Face Primer', 14500)">Add to Cart</button>
+            <button onclick="addToFavorites('Face Primer')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/setting_spray.jpg" alt="Setting Spray">
+            <h3>Setting Spray</h3>
+            <p>A spray to set your makeup all day.</p>
+            <p>Price: 15000 tg</p>
+            <p>Rating: ⭐</p>
+            <button onclick="addToCart('Setting Spray', 15000)">Add to Cart</button>
+            <button onclick="addToFavorites('Setting Spray')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/highlighter.jpg" alt="Highlighter">
+            <h3>Highlighter</h3>
+            <p>Shimmery highlighter for glowing skin.</p>
+            <p>Price: 15500 tg</p>
+            <p>Rating: ⭐⭐</p>
+            <button onclick="addToCart('Highlighter', 15500)">Add to Cart</button>
+            <button onclick="addToFavorites('Highlighter')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/contour_kit.jpg" alt="Contour Kit">
+            <h3>Contour Kit</h3>
+            <p>Contour kit to define your features.</p>
+            <p>Price: 16000 tg</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button onclick="addToCart('Contour Kit', 16000)">Add to Cart</button>
+            <button onclick="addToFavorites('Contour Kit')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/nail_polish.jpg" alt="Nail Polish">
+            <h3>Nail Polish</h3>
+            <p>Bright nail polish for stunning nails.</p>
+            <p>Price: 16500 tg</p>
+            <p>Rating: ⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Nail Polish', 16500)">Add to Cart</button>
+            <button onclick="addToFavorites('Nail Polish')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/makeup_remover.jpg" alt="Makeup Remover">
+            <h3>Makeup Remover</h3>
+            <p>Gentle makeup remover for all skin types.</p>
+            <p>Price: 17000 tg</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Makeup Remover', 17000)">Add to Cart</button>
+            <button onclick="addToFavorites('Makeup Remover')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/bb_cream.jpg" alt="BB Cream">
+            <h3>BB Cream</h3>
+            <p>Light BB cream for natural coverage.</p>
+            <p>Price: 17500 tg</p>
+            <p>Rating: ⭐</p>
+            <button onclick="addToCart('BB Cream', 17500)">Add to Cart</button>
+            <button onclick="addToFavorites('BB Cream')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/cc_cream.jpg" alt="CC Cream">
+            <h3>CC Cream</h3>
+            <p>Multifunctional CC cream for a fresh look.</p>
+            <p>Price: 18000 tg</p>
+            <p>Rating: ⭐⭐</p>
+            <button onclick="addToCart('CC Cream', 18000)">Add to Cart</button>
+            <button onclick="addToFavorites('CC Cream')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/bronzer.jpg" alt="Bronzer">
+            <h3>Bronzer</h3>
+            <p>A bronzer to enhance your tan.</p>
+            <p>Price: 18500 tg</p>
+            <p>Rating: ⭐⭐⭐</p>
+            <button onclick="addToCart('Bronzer', 18500)">Add to Cart</button>
+            <button onclick="addToFavorites('Bronzer')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/brow_pencil.jpg" alt="Brow Pencil">
+            <h3>Brow Pencil</h3>
+            <p>Brow pencil for defined eyebrows.</p>
+            <p>Price: 19000 tg</p>
+            <p>Rating: ⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Brow Pencil', 19000)">Add to Cart</button>
+            <button onclick="addToFavorites('Brow Pencil')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/powder.jpg" alt="Powder">
+            <h3>Powder</h3>
+            <p>A lightweight powder for a matte finish.</p>
+            <p>Price: 19500 tg</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Powder', 19500)">Add to Cart</button>
+            <button onclick="addToFavorites('Powder')">Add to Favorites</button>
+        </div>
+    
+        <div class="product">
+            <img src="images/lip_liner.jpg" alt="Lip Liner">
+            <h3>Lip Liner</h3>
+            <p>Lip liner for precise lip definition.</p>
+            <p>Price: 20000 tg</p>
+            <p>Rating: ⭐</p>
+            <button onclick="addToCart('Lip Liner', 20000)">Add to Cart</button>
+            <button onclick="addToFavorites('Lip Liner')">Add to Favorites</button>
+        </div>
+    </div>
+
+</main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Cosmetics Store</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+
+        function displayProducts(filteredProducts) {
+            const container = document.getElementById('productsContainer');
+            container.innerHTML = '';
+            filteredProducts.forEach(product => {
+                container.innerHTML += `
+                    <div class="col">
+                        <div class="card">
+                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">Price: ${product.price} tg</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                                <a href="#" class="btn btn-outline-secondary">Add to Favorites</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function searchProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filteredProducts = products.filter(product =>
+                product.name.toLowerCase().includes(query)
+            );
+            displayProducts(filteredProducts);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayProducts(products);
+        });
+
+        const products = [
+            { name: 'Lipstick', brand: 'Brand A', price: 10500, image: 'images/lipstick.jpg' },
+            { name: 'Foundation', brand: 'Brand B', price: 11000, image: 'images/foundation.jpg' },
+            { name: 'Mascara', brand: 'Brand A', price: 11500, image: 'images/mascara.jpg' },
+            { name: 'Blush', brand: 'Brand C', price: 12000, image: 'images/blush.jpg' },
+            { name: 'Eyeliner', brand: 'Brand B', price: 12500, image: 'images/eyeliner.jpg' },
+            { name: 'Concealer', brand: 'Brand A', price: 13000, image: 'images/concealer.jpg' },
+            { name: 'Eyeshadow Palette', brand: 'Brand C', price: 13500, image: 'images/eyeshadow_palette.jpg' },
+            { name: 'Lip Gloss', brand: 'Brand B', price: 14000, image: 'images/lip_gloss.jpg' },
+            { name: 'Face Primer', brand: 'Brand A', price: 14500, image: 'images/face_primer.jpg' },
+            { name: 'Setting Spray', brand: 'Brand C', price: 15000, image: 'images/setting_spray.jpg' }
+        ];
+
+        function displayProducts(filteredProducts) {
+            const container = document.getElementById('productsContainer');
+            container.innerHTML = '';
+            filteredProducts.forEach(product => {
+                container.innerHTML += `
+                    <div class="col">
+                        <div class="card">
+                            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text">Price: ${product.price} tg</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                                <a href="#" class="btn btn-outline-secondary">Add to Favorites</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        function updatePriceLabel() {
+            const price = document.getElementById('priceFilter').value;
+            document.getElementById('priceLabel').innerText = price;
+        }
+
+        function applyFilters() {
+            const brand = document.getElementById('brandFilter').value;
+            const maxPrice = parseInt(document.getElementById('priceFilter').value, 10);
+            
+            const filteredProducts = products.filter(product => 
+                (brand === 'all' || product.brand === brand) && product.price <= maxPrice
+            );
+
+            displayProducts(filteredProducts);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            displayProducts(products);
+        });
+    </script>
+
+</body>
+</html>

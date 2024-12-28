@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetics Store - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Cosmetics Store</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="products.html">Products</a></li>
+                        <li class="nav-item"><a class="nav-link" href="aboutus.html">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="favorites.html">Favorites</a></li>
+                        <li class="nav-item"><a class="nav-link" href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Welcome to Cosmetics Store</h2>
+        <p>Explore our latest products and enhance your beauty!</p>
+        <h2>Popular Products</h2>
+        <div class="product">
+            <img src="images/powder.jpg" alt="Powder">
+            <h3>Powder</h3>
+            <p>A lightweight powder for a matte finish.</p>
+            <p>Price: 19500 tg</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Powder', 19500)">Add to Cart</button>
+            <button onclick="addToFavorites('Powder')">Add to Favorites</button>
+        </div>
+        <div class="product">
+            <img src="images/nail_polish.jpg" alt="Nail Polish">
+            <h3>Nail Polish</h3>
+            <p>Bright nail polish for stunning nails.</p>
+            <p>Price: 16500 tg</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Nail Polish', 16500)">Add to Cart</button>
+            <button onclick="addToFavorites('Nail Polish')">Add to Favorites</button>
+        </div>
+        <div class="product">
+            <img src="images/highlighter.jpg" alt="Highlighter">
+            <h3>Highlighter</h3>
+            <p>Shimmery highlighter for glowing skin.</p>
+            <p>Price: 15500 tg</p>
+            <p>Rating: ⭐⭐⭐⭐⭐</p>
+            <button onclick="addToCart('Highlighter', 15500)">Add to Cart</button>
+            <button onclick="addToFavorites('Highlighter')">Add to Favorites</button>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Cosmetics Store</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
