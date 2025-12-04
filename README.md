@@ -56,7 +56,8 @@ H&M/
 
 ## Implementation Details
 
-1. Web Scraping (`src/scraper.py`)
+### 1. Web Scraping (`src/scraper.py`)
+
 **Technology:** Selenium WebDriver with Chrome
 
 **Features:**
@@ -71,99 +72,88 @@ H&M/
 - `description`: Product name
 - `price_raw`: Raw price string
 
-2. Data Cleaning (src/cleaner.py)
-****Technology:** Pandas
+### 2. Data Cleaning (`src/cleaner.py`)
+
+**Technology:** Pandas
 
 **Cleaning Operations:**
-    **1. Remove Duplicates**
- Drops exact duplicates and duplicate product IDs.
-    **2.Handle Missing Values**
- Fills missing brand with "H&M" and description with "No description".
-    **3.Normalize Text Fields**
- Strips whitespace, standardizes case.
-    **4.Convert Data Types**
- Converts price_raw → numeric price (float).
-    **5.Validate Records**
- Removes rows with missing critical fields.
+1. **Remove Duplicates**  
+   Drops exact duplicates and duplicate product IDs.
+2. **Handle Missing Values**  
+   Fills missing brand with "H&M" and description with "No description".
+3. **Normalize Text Fields**  
+   Strips whitespace, standardizes case.
+4. **Convert Data Types**  
+   Converts `price_raw` → numeric `price` (float).
+5. **Validate Records**  
+   Removes rows with missing critical fields.
 
-**Output:** cleaned_data.csv
+**Output:** `cleaned_data.csv`
 
-3. Database Loading (src/loader.py)
+### 3. Database Loading (`src/loader.py`)
+
 **Technology:** SQLite3 (Python standard library)
 
-**Database Schema:**
-
-sql
-CREATE TABLE hm_products (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    brand TEXT,
-    description TEXT,
-    price REAL,
-    loaded_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-**Features:**
-- **Replace strategy:** Table is replaced on each run
-- **Transaction support** for data integrity
-- **Timestamping** via loaded_at
-
-4. Apache Airflow DAG
-**DAG ID:** hm_scraping_pipeline 
-**Schedule:** @daily (runs once every 24 hours)
+### 4. Apache Airflow DAG
+**DAG ID:** `hm_scraping_pipeline`  
+**Schedule:** `@daily` (runs once every 24 hours)
 
 **Tasks:**
-**1.scrape_data** → Scrapes H&M using Selenium
-**2.clean_data** → Cleans and validates the data
-**3.load_to_sqlite** → Loads into SQLite database
+1. **scrape_data** → Scrapes H&M using Selenium  
+2. **clean_data** → Cleans and validates the data  
+3. **load_to_sqlite** → Loads into SQLite database  
+
 
 ## Verification Checklist
-**Scraping**
-[ ] Browser opens successfully
 
-[ ] Page loads without errors
+### Scraping
+- [ ] Browser opens successfully  
+- [ ] Page loads without errors  
+- [ ] Cookie popup handled  
+- [ ] Page scrolls to load more content  
+- [ ] At least 100 products extracted  
+- [ ] `dirty_data.csv` created  
 
-[ ] Cookie popup handled
+### Cleaning
+- [ ] Duplicates removed  
+- [ ] Missing values handled  
+- [ ] Price converted to float  
+- [ ] Text normalized  
+- [ ] `cleaned_data.csv` created  
 
-[ ] Page scrolls to load more content
+### Loading
+- [ ] SQLite database created  
+- [ ] Table schema correct  
+- [ ] Data inserted successfully  
+- [ ] `hm_data.db` contains 100+ records  
 
-[ ] At least 100 products extracted
+### Airflow DAG
+- [ ] DAG appears in Airflow UI  
+- [ ] Schedule set to `@daily`  
+- [ ] Tasks: scrape → clean → load  
+- [ ] DAG has successful run  
+- [ ] Logs show complete execution  
 
-[ ] dirty_data.csv created
 
-**Cleaning**
-[ ] Duplicates removed
-[ ] Missing values handled
-[ ] Price converted to float
-[ ] Text normalized
-[ ] cleaned_data.csv created
 
-**Loading**
-[ ] SQLite database created
-[ ] Table schema correct
-[ ] Data inserted successfully
-[ ] hm_data.db contains 100+ records
+##  Assignment Requirements Compliance
 
-**Airflow DAG**
-[ ] DAG appears in Airflow UI
-[ ] Schedule set to @daily
-[ ] Tasks: scrape → clean → load
-[ ] DAG has successful run
-[ ] Logs show complete execution
+| Requirement          | Status | Details                                      |
+|----------------------|--------|----------------------------------------------|
+| Dynamic Website      | +     | H&M uses JavaScript rendering, infinite scroll |
+| Selenium/Playwright  | +     | Implemented in `scraper.py`                  |
+| Structured Data      | +     | Product cards with brand, description, price |
+| 100+ Records         | +     | Scrapes 110+ products                        |
+| Remove Duplicates    | +     | Implemented in `cleaner.py`                  |
+| Handle Missing Values| +     | Default brand/description                    |
+| Normalize Text       | +     | Strip whitespace, standardize case           |
+| Type Conversions     | +     | Price → float                                |
+| SQLite Database      | +     | `hm_data.db` with schema                     |
+| Airflow DAG          | +     | scrape → clean → load                        |
+| 24h Schedule         | +     | `@daily`                                     |
+| Logging & Retries    | +     | Configured in DAG                            |
+| Successful Run       | +     | Verified via Airflow UI                      |
 
-📝 Assignment Requirements Compliance
-Requirement	Status	Details
-Dynamic Website	✅	H&M uses JavaScript rendering, infinite scroll
-Selenium/Playwright	✅	Implemented in scraper.py
-Structured Data	✅	Product cards with brand, description, price
-100+ Records	✅	Scrapes 110+ products
-Remove Duplicates	✅	Implemented in cleaner.py
-Handle Missing Values	✅	Default brand/description
-Normalize Text	✅	Strip whitespace, standardize case
-Type Conversions	✅	Price → float
-SQLite Database	✅	hm_data.db with schema
-Airflow DAG	✅	scrape → clean → load
-24h Schedule	✅	@daily
-Logging & Retries	✅	Configured in DAG
-Successful Run	✅	Verified via Airflow UI
 
 ## References
 **H&M:** https://www2.hm.com
@@ -171,3 +161,5 @@ Successful Run	✅	Verified via Airflow UI
 **Apache Airflow:** https://airflow.apache.org/docs/
 **Pandas:** https://pandas.pydata.org/docs/
 **SQLite:** https://www.sqlite.org/docs.html
+
+H&M/ ├── README.md # Project documentation ├── requirements.txt # Python dependencies ├── airflow_dag.py # Apache Airflow DAG definition │ ├── src/ # ETL modules │ ├── scraper.py # Selenium-based scraper │ ├── cleaner.py # Data cleaning logic │ └── loader.py # SQLite database loader │ └── data/ # Output directory ├── dirty_data.csv # Raw scraped data ├── cleaned_data.csv # Cleaned output └── hm_data.db # Final SQLite database
